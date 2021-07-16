@@ -1,5 +1,9 @@
 package question3;
 
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
+
+
 /**
  * NFP121 TpIntroduction, usage de BlueJ et du "Submitter".
  * 
@@ -45,7 +49,18 @@ public class AuditeurCNAM {
      *         homonymes...
      */
     public String login() {
-        return "";// à compléter
+        // code complété
+    	  
+    	String str = this.nom.substring(0, Math.min(nom.length(), 6)).toLowerCase() + "_" + this.prenom.charAt(0);
+        String login = str;
+        login = Normalizer.normalize(login, Form.NFD);
+        login = login.replaceAll("\\p{M}", "");
+        login = login.replaceAll("[^a-zA-Z0-9]","_");
+       
+        System.out.println("After replacing accents " + str );
+//        str = Normalizer.normalize(str, Normalizer.Form.NFD);
+//        str = str.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+        return login;
     }
 
     /**
@@ -54,7 +69,8 @@ public class AuditeurCNAM {
      * @return son nom
      */
     public String nom() {
-        return null;// à compléter
+        // code complété
+        return this.nom;
     }
 
     /**
@@ -63,7 +79,8 @@ public class AuditeurCNAM {
      * @return son prénom
      */
     public String prenom() {
-        return null;// à compléter
+        // code complété
+        return this.prenom;
     }
 
     /**
@@ -72,7 +89,8 @@ public class AuditeurCNAM {
      * @return son matricule
      */
     public String matricule() {
-        return null;// à compléter
+        // code complété
+        return this.matricule;
     }
 
     /**

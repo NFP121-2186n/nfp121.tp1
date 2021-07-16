@@ -19,13 +19,14 @@ public class Picture {
     private Square wall;
     private Square window;
     private Triangle roof;
-    private Circle sun;
+    private static Circle sun;
 
     /**
      * Constructor for objects of class Picture
      */
     public Picture() {
         // nothing to do... instance variables are automatically set to null
+//        this.draw();
     }
 
     /**
@@ -50,8 +51,17 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        // completed code
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
+        sun.moveVertical(-10);
+        sun.changeSize(60);
+        sun.makeVisible();
+        
+        sun = new Circle();
+        // completed code
+        sun.changeColor("yellow");
+        sun.moveHorizontal(200);
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
@@ -82,5 +92,14 @@ public class Picture {
             sun.changeColor("yellow");
         }
     }
+    
+    // code completed
+       public static void sunset() {
+            sun.slowMoveVertical(130) ;
+    }
 
+public static void main(String args[]) {
+    Picture pic = new Picture();
+    pic.draw();
+}
 }

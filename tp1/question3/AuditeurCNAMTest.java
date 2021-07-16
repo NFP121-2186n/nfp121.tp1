@@ -122,4 +122,14 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
             auditeur1.login());
     }
+    
+    public void test_nom_long_avec_particule_et_accemt() {
+    	// code ajouté
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Jéa-n-pierre",
+                "Khoury", "12345");
+        assertEquals("Mr Chloé chloé ", "Jéa-n-pierre", auditeur1.nom());
+        assertEquals("Mme Chloé chloé ", "Khoury", auditeur1.prenom());
+        assertEquals(" space devient _ ? é devient e? retourne seulement les 6 premieres lettres? ", "jean_n_k",
+            auditeur1.login());
+    }
 }
